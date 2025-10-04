@@ -1,7 +1,8 @@
 import socket
 import cv2
 import numpy as np
-
+##T1 server with some extra
+#new line addefd
 SERVER_IP = '192.168.0.203'  # Server’s IP
 PORT = 12345
 
