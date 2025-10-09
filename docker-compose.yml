@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  server:
+    build:
+      context: ./ubuntu-docker
+    ports:
+      - "5000:5000"  # Low-res stereo stream
+      - "5001:5001"  # Full-res stream
+    volumes:
+      - /shared:/shared  # Mount NFS shared folder
+    restart: always
+    environment:
+      - OLLAMA_MODELS=/shared/models  # Store Ollama models in shared folder
+  streamer:
+    build:
+      context: ./pi-scripts
+    devices:
+      - /dev/video0:/dev/video0  # Left USB camera
+      - /dev/video1:/dev/video1  # Right USB camera
+    ports:
+      - "5000:5000"  # Low-res stereo stream
+      - "5001:5001"  # Full-res stream
+    restart: always

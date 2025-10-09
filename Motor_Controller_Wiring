@@ -1,0 +1,24 @@
+Motor wiring 
+IBT_2
+motor 1 
+1. Logic Connections (Arduino to IBT_2)
+
+Connect Arduino 5V to IBT_2 VCC.
+
+Connect Arduino GND to IBT_2 GND.
+
+Efficiency Step: Connect a small jumper wire from IBT_2 VCC to both R_EN and L_EN on the same board. This enables the controller.
+
+Connect a PWM-capable pin on the Arduino (marked with a ~) to the RPWM pin. Let's use Arduino Pin 9.
+
+Connect another PWM-capable pin to the LPWM pin. Let's use Arduino Pin 8.
+
+Wiring the Second Motor Controller
+You will wire the second controller identically, just using a different pair of PWM pins on the Mega. For example:
+
+Arduino Pin 7 to the second controller's RPWM.
+
+Arduino Pin 6 to the second controller's LPWM.
+
+Connect the second controller's VCC and GND to the same 5V and GND rails as the first.
+
